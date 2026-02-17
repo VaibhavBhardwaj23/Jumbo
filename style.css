@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #0a0c1e;
+}
+.logo {
+  max-width: 100px;
+}
+.navigationBar {
+  padding: 1.2em;
+  background-color: #0c082b;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  z-index: 10;
+}
+#nav-icon1 {
+  width: 24px;
+  height: 18px;
+  position: relative;
+  cursor: pointer;
+  display: none;
+}
+
+#nav-icon1 span {
+  position: absolute;
+  display: block;
+  height: 2px; /* super thin like iOS */
+  width: 100%;
+  background: white; /* iPhone uses near-black */
+  border-radius: 2px;
+  left: 0;
+  transition:
+    transform 0.25s ease,
+    top 0.25s ease,
+    opacity 0.2s ease;
+}
+
+/* bar spacing */
+#nav-icon1 span:nth-child(1) {
+  top: 0;
+}
+#nav-icon1 span:nth-child(2) {
+  top: 8px;
+}
+#nav-icon1 span:nth-child(3) {
+  top: 16px;
+}
+
+/* OPEN → morph into X */
+#nav-icon1.open span:nth-child(1) {
+  top: 8px;
+  transform: rotate(45deg);
+}
+
+#nav-icon1.open span:nth-child(2) {
+  opacity: 0;
+}
+
+#nav-icon1.open span:nth-child(3) {
+  top: 8px;
+  transform: rotate(-45deg);
+}
+
+/*mobileOptions */
+.mobileOptions {
+  position: absolute;
+  top: 1;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  background-color: #0c082b;
+  /* animation setup */
+  transform: translateY(-20px);
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+
+  transition:
+    transform 0.35s ease,
+    opacity 0.3s ease;
+}
+.mobileOptions a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.8em;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+/* ACTIVE STATE → slide down */
+.mobileOptions.show {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+/* Desktop Options */
+.desktopOptions 
+{
+    color: white;
+    display: flex;
+    gap: 30px;
+    padding: 0 2em;
+}
+.desktopOptions  a
+{
+    color: white;
+  text-decoration: none;
+  font-size: 0.8em;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+@media screen and (max-width:600px) {
+    #nav-icon1
+    {
+        display: block;
+    }
+    .desktopOptions
+    {
+        display: none
+    }
+}
