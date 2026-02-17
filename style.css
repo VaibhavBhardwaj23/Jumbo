@@ -1,6 +1,9 @@
 * {
   margin: 0;
   box-sizing: border-box;
+  font-family: sans-serif;
+  color: white;
+  scroll-behavior: smooth;
 }
 body {
   background-color: #0a0c1e;
@@ -91,7 +94,6 @@ body {
   color: white;
   text-decoration: none;
   font-size: 0.8em;
-  font-family: sans-serif;
   font-weight: bold;
 }
 /* ACTIVE STATE → slide down */
@@ -101,31 +103,227 @@ body {
   pointer-events: auto;
 }
 
-
 /* Desktop Options */
-.desktopOptions 
-{
-    color: white;
-    display: flex;
-    gap: 30px;
-    padding: 0 2em;
+.desktopOptions {
+  color: white;
+  display: flex;
+  gap: 30px;
+  padding: 0 2em;
 }
-.desktopOptions  a
-{
-    color: white;
+.desktopOptions a {
+  color: white;
   text-decoration: none;
   font-size: 0.8em;
   font-family: sans-serif;
   font-weight: bold;
 }
-
-@media screen and (max-width:600px) {
-    #nav-icon1
-    {
-        display: block;
-    }
-    .desktopOptions
-    {
-        display: none
-    }
+.heroSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5em;
+  gap: 1em;
 }
+.heroImage {
+  max-width: 500px;
+  width: 100%;
+}
+.heroImage img {
+  width: 100%;
+}
+.heroText {
+  text-align: center;
+}
+.heroText h1 {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: white;
+  font-size: 2.8em;
+}
+.yellow {
+  color: #fdc700;
+}
+.heroText p {
+  color: white;
+  font-size: 0.7em;
+  margin-top: 2em;
+}
+.downloadCTAmobile {
+  background-color: #161a41;
+  width: 100%;
+  padding: 1em ;
+}
+.downloadCTAmobile a {
+  color: #5d260f;
+  padding: 1em;
+  background: #ffb900;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 185, 0, 1) 0%,
+    rgba(254, 154, 0, 1) 50%
+  );
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 900;
+  border-radius: 8px;
+}
+/* Section 2 */
+.section2,.section3 
+{
+  padding-top: 3em;
+  
+}
+.section2 h2,
+.section3 h2 
+{
+  font-size: 2em ;
+  text-align: center;
+}
+.section2 p,
+.section3 p
+{
+  font-size: 1.1em;
+  text-align: center;
+  font-weight: 10;
+  margin-top: 1em;
+}
+.cardsHolder 
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  padding: 2em;
+}
+.card
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #211E3D;
+  border-radius: 14px;
+}
+.card h3 
+{
+  text-align: center;
+}
+.cardText 
+{
+  padding: 1.5em;
+}
+/*  */
+/* Section 3 */
+/*  */
+.section3 p 
+{
+  width: 65%;
+  margin: auto;
+  margin-top: 1em;
+}
+.numbersCardsHolder
+{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 2em;
+}
+.numberCard
+{
+   display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #211E3D;
+  border-radius: 14px;
+  text-align: center;
+  padding: 2em 0;
+}
+.numbersText
+{
+  margin-top: 1em;
+}
+.numbersText p 
+{
+  width: 100%;
+  color: hsla(235, 81%, 94%, 0.753);
+}
+/*  */
+/* Testimonials */
+/*  */
+.carousel {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform .6s cubic-bezier(.77,0,.18,1);
+}
+
+/* SLIDES */
+.slide {
+  flex: 0 0 33.333%;      /* desktop = 3 visible */
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+/* MOBILE */
+@media (max-width:768px){
+  .slide{
+    flex: 0 0 100%;
+  }
+}
+
+/* your card styles */
+.slide > div,
+.slide {
+  background:#211E3D;
+  border-radius:14px;
+}
+
+.divider{
+  height:4px;
+  background:red;
+  margin:10px 0;
+}
+
+/* DOTS */
+.carousel-dots{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  margin-top:14px;
+}
+
+.carousel-dots span{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:#bbb;
+  transition:.3s;
+}
+
+.carousel-dots span.active{
+  background:#211E3D;
+  transform:scale(1.2);
+}
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 600px) {
+  #nav-icon1 {
+    display: block;
+  }
+  .desktopOptions {
+    display: none;
+  }
+}
+
+
