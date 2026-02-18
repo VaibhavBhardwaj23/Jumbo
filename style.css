@@ -8,6 +8,10 @@
 body {
   background-color: #0a0c1e;
 }
+.main 
+{
+  position: relative;
+}
 .logo {
   max-width: 100px;
 }
@@ -198,6 +202,13 @@ body {
   align-items: center;
   background: #211e3d;
   border-radius: 14px;
+  scale: 0.97;
+  transition: all ease-in-out 0.4s;
+}
+.card:hover
+{
+scale: 1;
+cursor: pointer;
 }
 .card h3 {
   text-align: center;
@@ -231,6 +242,13 @@ body {
   border-radius: 14px;
   text-align: center;
   padding: 2em 0;
+  scale: 0.97;
+  transition: all ease-in-out 0.4s;
+}
+.numberCard:hover
+{
+scale: 1;
+cursor: pointer;
 }
 .numbersText {
   margin-top: 1em;
@@ -321,6 +339,10 @@ color: #0A0C1EB2;
   flex-direction: column;
   gap: 20px;
 }
+.ctadownloads
+{
+  display: none;
+}
 
 @keyframes slideauto{
   from { transform: translateX(0); }
@@ -401,6 +423,10 @@ background: linear-gradient(270deg, rgba(10, 12, 30, 0) 0%, rgba(10, 12, 30, 0.6
 .slider-track{
   will-change: transform;
 }
+.desktopBottom
+{
+  display: none;
+}
 
 
 /* MOBILE */
@@ -424,7 +450,11 @@ background: linear-gradient(270deg, rgba(10, 12, 30, 0) 0%, rgba(10, 12, 30, 0.6
   .heroText
   {
     text-align: start;
-    font-size: 1.3em;
+    font-size: 1.7em;
+  }
+  .heroText p 
+  {
+    font-size: 1em;
   }
   .downloadCTAmobile
   {
@@ -478,5 +508,58 @@ background: linear-gradient(270deg, rgba(10, 12, 30, 0) 0%, rgba(10, 12, 30, 0.6
     display: flex;
     gap: 20px;
   }
-  
+  .ctadownloads
+  {
+    display: flex;
+    margin-top: 1em;
+    gap: 20px;
+  }
+  .imgStore 
+  {
+    max-width: 150px;
+  }
+  .imgStore img 
+  {
+    width: 100%;
+  }
+  .section2
+  {
+    margin-top: 3em;
+  }
+  .desktopBottom
+  {
+    display: flex;
+    background-color: #fdc700;
+    padding: 2em 4em;
+    max-width: 700px;
+    margin:2em auto;
+    border-radius: 14px;
+    padding-bottom: 0;
+    justify-content: space-between;
+    align-items: center;
+    
+  }
+  .sideRight img 
+  {
+    max-width: 200px;
+  }
+  .sideLeft 
+  {
+    width: 50%;
+  }
+  .sideLeft h3,
+  .sideLeft p 
+  {
+        color: #0a0c1e !important
+  }
+  .sideLeft p 
+  {
+    margin-top: 1em;
+    font-size: 0.8em;
+  }
+  .sideLeft h3 
+  {
+    font-size: 1.45em;
+  }
+
 }
