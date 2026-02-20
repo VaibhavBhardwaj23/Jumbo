@@ -117,8 +117,8 @@ body {
   color: white;
   text-decoration: none;
   font-size: 0.8em;
-  font-family: sans-serif;
   font-weight: bold;
+  align-items: center;
 }
 .heroSection {
   display: flex;
@@ -128,7 +128,6 @@ body {
   gap: 1em;
 }
 .heroImage {
-  max-width: 500px;
   width: 100%;
 }
 .heroImage img {
@@ -149,12 +148,15 @@ body {
 .heroText p {
   color: #b8b9d2;
   font-size: 0.7em;
-  margin-top: 2.4em;
+  margin-top: 1.6em;
 }
 .downloadCTAmobile {
   background-color: #161a41;
   width: 100%;
   padding: 1em;
+  position: fixed;
+  bottom: 0;
+  z-index: 100;
 }
 .downloadCTAmobile a {
   color: #5d260f;
@@ -190,6 +192,7 @@ body {
   text-align: center;
   font-weight: 10;
   margin-top: 1em;
+  color: hsla(235, 81%, 94%, 0.8);
 }
 .cardsHolder {
   display: flex;
@@ -205,6 +208,59 @@ body {
   border-radius: 14px;
   scale: 0.97;
   transition: all ease-in-out 0.4s;
+box-shadow: rgb(72, 43, 119) 10px 15px 50px 4px
+
+}
+/* animated gradient property */
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* NEW glow version only */
+.card-glow {
+  position: relative;
+  border-radius: 14px;
+  background: #211e3d;
+}
+
+/* animated border layers */
+.card-glow::before,
+.card-glow::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  z-index: -1;
+  border-radius: inherit;
+
+  background: conic-gradient(
+    from var(--gradient-angle),
+    #161a41,
+    #0c082b,
+    #0a0c1e,
+    rgb(38,57,77),
+    #211e3d,
+    #161a41
+  );
+
+  animation: rotation 12s linear infinite;
+}
+
+/* glow blur layer */
+.card-glow::after {
+   filter: blur(12px);
+  opacity: 0.45;
+}
+
+/* animation */
+@keyframes rotation {
+  0% {
+    --gradient-angle: 0deg;
+  }
+  100% {
+    --gradient-angle: 360deg;
+  }
 }
 .card:hover {
   scale: 1;
@@ -217,7 +273,12 @@ body {
   padding: 1.5em;
 }
 .card p {
+  color: hsla(0, 0%, 100%, 0.6);
   font-size: 0.9em;
+}
+.cardImage
+{
+  line-height: 0;
 }
 /*  */
 /* Section 3 */
@@ -255,6 +316,10 @@ body {
   width: 100%;
   color: hsla(235, 81%, 94%, 0.753);
 }
+.numbersText h3 
+{
+  font-size: 2em;
+}
 /*  */
 /* Testimonials */
 /*  */
@@ -283,6 +348,7 @@ body {
 }
 .testHead p {
   margin: 1em 0 2em;
+  color: hsla(235, 81%, 94%, 0.8);
 }
 .testimonialSection {
   margin-top: 3em;
@@ -299,7 +365,7 @@ body {
 }
 .footer h6 {
   color: #0a0c1e;
-  font-weight: 900;
+  font-weight: 700;
   font-size: 1em;
 }
 .footer a {
@@ -393,7 +459,7 @@ body {
 
 .testimonialUpper {
   padding-bottom: 1.5em;
-  border-bottom: 1px solid hsla(235, 81%, 94%, 0.753);
+  border-bottom: 1px solid #413e6b;
   padding-top: 1em;
 }
 .testimonialLower {
@@ -409,6 +475,70 @@ body {
 .desktopBottom {
   display: none;
 }
+.desktopSlider
+{
+  display: none;
+}
+
+
+.carousel-wrapper{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px 16px;
+}
+
+.carousel{
+  width:100%;
+  position:relative;
+}
+
+.carousel__slides{
+  display:flex;
+  overflow:auto;
+  scroll-snap-type:x mandatory;
+  column-gap:20px;
+  scrollbar-width:none;
+}
+.carousel__slides::-webkit-scrollbar{ display:none; }
+
+.carousel__slide{
+  flex:0 0 100%;
+  scroll-snap-align:center;
+  display:flex;
+  justify-content:center;
+}
+
+.slide{
+  width:100%;
+  background:#211e3d;
+  border-radius:14px;
+  padding:1em;
+}
+
+/* dots */
+.carousel__navdots{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-top:16px;
+}
+
+.carousel__navdots button{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  border:0;
+  background:#6b6a94;
+  opacity:.4;
+  cursor:pointer;
+  transition:.3s;
+}
+.carousel__navdots button.is-active{
+  opacity:1;
+  background:#c36cfc;
+  transform:scale(1.2);
+}
 
 /* MOBILE */
 
@@ -419,31 +549,54 @@ body {
   .desktopOptions {
     display: none;
   }
+  .footerTop 
+  {
+    max-width: 130px;
+  }
+  .footerTop img 
+  {
+    width: 100%;
+  }
+  .footer
+  {
+    margin-bottom: 4em;
+  }
+
 }
 
 @media screen and (min-width: 768px) {
+  .mobileSlider
+  {
+    display: none;
+  }
+  .desktopSlider
+  {
+display: block;
+  }
+  .contentSection {
+    padding: 0 94px;
+  }
+
   .heroSection {
     flex-direction: row;
     padding: 2.3em;
   }
   .heroText {
     text-align: start;
-    font-size: 1.7em;
+    font-size: 1.5em;
     font-weight: 600;
   }
   .heroText p {
     font-size: 0.8em;
-    margin-top:0.8em;
+    margin-top: 0.8em;
     font-weight: lighter;
   }
   .section2 h2,
-  .section3 h2 
-  {
+  .section3 h2 {
     font-size: 2.7em;
   }
   .section2 p,
-  .section3 p 
-  {
+  .section3 p {
     font-size: 1em;
     color: #e3e5fc;
   }
@@ -456,7 +609,7 @@ body {
     flex-wrap: wrap;
   }
   .card {
-    max-width: 360px;
+    max-width: 300px;
   }
   .numbersCardsHolder {
     flex-direction: row;
@@ -465,6 +618,16 @@ body {
   .numberCard {
     width: 100%;
     max-width: 350px;
+  }
+  .cardText p {
+    font-size: 0.8em;
+  }
+  .cardImage {
+    max-width: 250px;
+    line-height: 0;
+  }
+  .cardImage img {
+    width: 100%;
   }
   .footerFirst {
     flex-direction: row;
@@ -495,7 +658,7 @@ body {
     gap: 20px;
   }
   .imgStore {
-    max-width: 150px;
+    max-width: 170px;
     cursor: pointer;
   }
   .imgStore img {
@@ -508,15 +671,15 @@ body {
     display: flex;
     background-color: #fdc700;
     padding: 2em 4em;
-    max-width: 700px;
     margin: 2em auto;
     border-radius: 14px;
     padding-bottom: 0;
     justify-content: space-between;
     align-items: center;
+    max-width: 1100px;
   }
   .sideRight img {
-    max-width: 200px;
+    max-width: 100%;
   }
   .sideLeft {
     width: 50%;
@@ -527,10 +690,43 @@ body {
   }
   .sideLeft p {
     margin-top: 1em;
-    font-size: 0.8em;
+    font-size: 1.3em;
   }
   .sideLeft h3 {
-    font-size: 1.45em;
+    font-size: 2.5em;
+  }
+  .sideRight
+  {
+    line-height: 0;
+  }
+
+  .logo {
+    max-width: 150px;
+  }
+  .desktopOptions a {
+    font-size: 1em;
+  }
+  .heroImage {
+    max-width: 100%;
+  }
+  .section2,
+  .section3,
+  .testimonialSection {
+    padding: 80px auto;
+  }
+  .slide
+  {
+    max-width: 300px;
+    padding: 28px;
+  }
+  .testimonialLower p 
+  {
+    font-size: 16px;
+  }
+  .testimonialUpper
+  {
+    padding: 0;
+    padding-bottom: 1em;
   }
 }
 
@@ -577,3 +773,6 @@ body.noScroll {
 .show {
   display: flex;
 }
+
+
+

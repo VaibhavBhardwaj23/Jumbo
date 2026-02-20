@@ -79,3 +79,71 @@ document.querySelector(".downloadApp").addEventListener("click", function(e){
   }
 });
 
+
+
+
+
+const carousel = document.querySelector('.carousel');
+const slideWrapper = document.querySelector('.carousel__slides');
+const slides = document.querySelectorAll('.carousel__slide');
+const navdotWrapper = document.querySelector('.carousel__navdots');
+
+const n_slides = slides.length;
+const pause = 6000;
+
+let slideWidth = slides[0].offsetWidth;
+let gap = Number(getComputedStyle(slideWrapper).columnGap.replace('px','')) || 0;
+
+// create dots
+for(let i=0;i<n_slides;i++){
+  const b=document.createElement('button');
+  if(i===0) b.classList.add('is-active');
+  navdotWrapper.appendChild(b);
+}
+const navdots=document.querySelectorAll('.carousel__navdots button');
+
+function currentIndex(){
+  return Math.round(slideWrapper.scrollLeft/(slideWidth+gap));
+}
+
+function goto(index){
+  slideWrapper.scrollTo({
+    left:(slideWidth+gap)*index,
+    behavior:'smooth'
+  });
+}
+
+navdots.forEach((dot,i)=>{
+  dot.addEventListener('click',()=>goto(i));
+});
+
+slideWrapper.addEventListener('scroll',()=>{
+  const c=currentIndex();
+  navdots.forEach(d=>d.classList.remove('is-active'));
+  if(navdots[c]) navdots[c].classList.add('is-active');
+});
+
+// autoplay
+let itv;
+function play(){
+  clearInterval(itv);
+  itv=setInterval(()=>{
+    let next=currentIndex()+1;
+    if(next>=n_slides) next=0;
+    goto(next);
+  },pause);
+}
+function stop(){ clearInterval(itv); }
+
+carousel.addEventListener('pointerenter',stop);
+carousel.addEventListener('pointerleave',play);
+carousel.addEventListener('touchstart',stop);
+
+window.addEventListener('resize',()=>{
+  slideWidth=slides[0].offsetWidth;
+});
+
+goto(0);
+play();
+
+
