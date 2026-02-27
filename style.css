@@ -347,7 +347,7 @@ p {
   display: block;
   margin-top: 0.7em;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 500;
   margin-bottom: 8px;
   font-size: 14px;
 }
@@ -642,7 +642,7 @@ p {
     border-top: 1px solid hsla(235, 81%, 94%, 0.753);
     padding-top: 2em;
   }
-  .footerTop a 
+  .footer a 
   {
     font-size:16px;
   }
