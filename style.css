@@ -597,7 +597,7 @@ p {
     justify-content: space-between;
   }
   .card {
-    max-width: 370px;
+    max-width: 350px;
     padding: 30px 29px 0;
     gap: 32px;
   }
