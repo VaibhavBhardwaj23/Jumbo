@@ -656,8 +656,12 @@ p {
     gap: 20px;
   }
   .imgStore {
-    max-width: 170px;
+    max-width: 180px;
     cursor: pointer;
+    transition: all ease-in-out 0.3s;
+  }
+  .imgStore:hover {
+    scale: 1.1;
   }
   .imgStore img {
     width: 100%;
