@@ -642,7 +642,11 @@ p {
     border-top: 1px solid hsla(235, 81%, 94%, 0.753);
     padding-top: 2em;
   }
-  .footer a {
+  .footerTop a 
+  {
+    font-size:16px;
+  }
+  .footerSecond a {
     margin: 0;
     font-size: 16px;
   }
