@@ -137,7 +137,7 @@ p {
   flex-direction: column;
   align-items: center;
   margin-top: 24px;
-  padding: 20px;
+  padding: 20px 0;
 }
 .heroImage {
   width: 370px
@@ -597,7 +597,7 @@ p {
     justify-content: space-between;
   }
   .card {
-    max-width: 350px;
+    max-width: 360px;
     padding: 30px 29px 0;
     gap: 32px;
   }
@@ -642,7 +642,7 @@ p {
     border-top: 1px solid hsla(235, 81%, 94%, 0.753);
     padding-top: 2em;
   }
-  .footerSecond a {
+  .footer a {
     margin: 0;
     font-size: 16px;
   }
